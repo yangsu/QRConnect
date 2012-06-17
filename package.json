@@ -1,9 +1,19 @@
 {
-    "name": "application-name"
-  , "version": "0.0.1"
-  , "private": true
-  , "dependencies": {
-      "express": "2.5.10"
-    , "jade": ">= 0.0.1"
+  "name": "QRConnect",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "2.5.10",
+    "jade": ">= 0.0.1"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  },
+  "author": "Brandon Millman, Kevin Gao, Yang Su",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/yangsu/QRConnect.git"
   }
 }
