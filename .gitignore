@@ -1,3 +1,4 @@
+.gitignore
 # Xcode
 build/*
 *.pbxuser
@@ -10,7 +11,8 @@ build/*
 !default.perspectivev3
 *.xcworkspace
 !default.xcworkspace
-xcuserdata
+ios/QRConnect.xcodeproj/project.xcworkspace/xcuserdata/*
+xcuserdata/*
 profile
 *.moved-aside
 DerivedData
