@@ -47,7 +47,7 @@
 
 - (void) connectionFailed:(WaitingRoomViewController *)controller
 {
-    [self.delegate connectionFailed:controller];
+    //[self.delegate connectionFailed:controller];
 }
 
 -(void) receiveQR:(NSString *) qrCode

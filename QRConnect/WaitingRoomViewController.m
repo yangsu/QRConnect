@@ -11,6 +11,7 @@
 #import "Barcode.h"
 #import "ViewControllerFactory.h"
 #import "BackendConnecter.h"
+#import "XBCurlView.h"
 
 @interface WaitingRoomViewController() <BackendDelegate>
 
@@ -19,6 +20,7 @@
 @implementation WaitingRoomViewController
 
 @synthesize imageView;
+@synthesize curlView;
 @synthesize delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -32,8 +34,34 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    CGRect r = CGRectZero;
+    r.size = self.view.bounds.size;
+    self.curlView = [[[XBCurlView alloc] initWithFrame:r] autorelease];
+    [self.curlView drawViewOnFrontOfPage:self.view];
+    self.curlView.opaque = NO;
+    
+    UISwipeGestureRecognizer *recognizer;
+    
+    recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeFrom:)];
+    [recognizer setDirection:UISwipeGestureRecognizerDirectionUp];
+    [(UIView *)self.curlView addGestureRecognizer:recognizer];
+    [(UIView *)self.imageView addGestureRecognizer:recognizer];
+    [(UIView *)self.view addGestureRecognizer:recognizer];
+
+
+
+
+    [recognizer release];
+    
     BackendConnecter *backEnd = [BackendConnecter sharedInstance];
     backEnd.delegate = self;
+}
+
+-(void)handleSwipeFrom:(UISwipeGestureRecognizer *)recognizer {
+    NSLog(@"DOWN_SWIPE");
+    CGRect frame = self.view.frame;    
+    [self.curlView curlView:self.imageView cylinderPosition:CGPointMake(frame.size.width, frame.size.height/2) cylinderAngle:M_PI_2 cylinderRadius:20 animatedWithDuration:4];
 }
 
 - (void) receiveQR:(NSString *)qrCode
@@ -47,7 +75,7 @@
 
 - (void) receiveMessage:(id)message
 {
-    NSLog(message);
+    NSLog(@"message");
 }
 
 - (void) setQRImage:(NSString *)qrCode
@@ -80,7 +108,9 @@
 
 - (IBAction) doneAction:(id)sender
 {
-    [self.delegate connectionEstablished:self];
+    //[self.delegate connectionEstablished:self];
+    [self dismissModalViewControllerAnimated:YES];
+    
 }
 
 - (IBAction) settingsAction:(id)sender;

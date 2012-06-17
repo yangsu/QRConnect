@@ -10,6 +10,7 @@
 
 @class SidebarViewController;
 @class WaitingRoomViewController;
+@class XBCurlView;
 
 
 @protocol WaitingRoomDelegate <NSObject>
@@ -22,6 +23,7 @@
 @interface WaitingRoomViewController : UIViewController 
 {
     IBOutlet UIImageView *imageView;
+    IBOutlet XBCurlView *curlView;
     id<WaitingRoomDelegate> delegate;
 }
 
@@ -30,6 +32,7 @@
 - (IBAction) settingsAction:(id)sender;
 
 @property (nonatomic,retain) IBOutlet UIImageView *imageView;
+@property (nonatomic,retain) IBOutlet XBCurlView *curlView;
 @property (nonatomic, assign) id<WaitingRoomDelegate> delegate;
 
 @end

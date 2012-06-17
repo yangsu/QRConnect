@@ -76,7 +76,7 @@
 {
     self.scanFinished = YES;
     [self.delegate connectionFailed:self];
-
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 

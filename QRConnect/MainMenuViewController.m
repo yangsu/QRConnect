@@ -58,12 +58,12 @@
 
 -(void)connectionEstablished:(UIViewController *)controller
 {
-    [controller dismissModalViewControllerAnimated:YES];
+    //[controller dismissModalViewControllerAnimated:YES];
 }
 
 -(void) connectionFailed:(UIViewController *)controller
 {
-    [controller dismissModalViewControllerAnimated:YES];
+    //[controller dismissModalViewControllerAnimated:YES];
 }
 
 - (void)dealloc 

@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E50AA1A1158DE3F2006B9FC1 /* CGPointAdditions.c in Sources */ = {isa = PBXBuildFile; fileRef = E50AA18C158DE3F2006B9FC1 /* CGPointAdditions.c */; };
+		E50AA1A2158DE3F2006B9FC1 /* FragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = E50AA18F158DE3F2006B9FC1 /* FragmentShader.glsl */; };
+		E50AA1A3158DE3F2006B9FC1 /* NextPageFragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = E50AA190158DE3F2006B9FC1 /* NextPageFragmentShader.glsl */; };
+		E50AA1A4158DE3F2006B9FC1 /* NextPageNoTextureFragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = E50AA191158DE3F2006B9FC1 /* NextPageNoTextureFragmentShader.glsl */; };
+		E50AA1A5158DE3F2006B9FC1 /* NextPageNoTextureVertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = E50AA192158DE3F2006B9FC1 /* NextPageNoTextureVertexShader.glsl */; };
+		E50AA1A6158DE3F2006B9FC1 /* NextPageVertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = E50AA193158DE3F2006B9FC1 /* NextPageVertexShader.glsl */; };
+		E50AA1A7158DE3F2006B9FC1 /* VertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = E50AA194158DE3F2006B9FC1 /* VertexShader.glsl */; };
+		E50AA1A8158DE3F2006B9FC1 /* XBAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = E50AA196158DE3F2006B9FC1 /* XBAnimation.m */; };
+		E50AA1A9158DE3F2006B9FC1 /* XBAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E50AA198158DE3F2006B9FC1 /* XBAnimationManager.m */; };
+		E50AA1AA158DE3F2006B9FC1 /* XBCurlView.m in Sources */ = {isa = PBXBuildFile; fileRef = E50AA19A158DE3F2006B9FC1 /* XBCurlView.m */; };
+		E50AA1AB158DE3F2006B9FC1 /* XBPageCurlView.m in Sources */ = {isa = PBXBuildFile; fileRef = E50AA19C158DE3F2006B9FC1 /* XBPageCurlView.m */; };
+		E50AA1AC158DE3F2006B9FC1 /* XBPageDragView.m in Sources */ = {isa = PBXBuildFile; fileRef = E50AA19E158DE3F2006B9FC1 /* XBPageDragView.m */; };
+		E50AA1AD158DE3F2006B9FC1 /* XBSnappingPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = E50AA1A0158DE3F2006B9FC1 /* XBSnappingPoint.m */; };
+		E50AA1B4158DECD6006B9FC1 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E50AA1B3158DECD6006B9FC1 /* OpenGLES.framework */; };
+		E50AA1B6158DECE6006B9FC1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E50AA1B5158DECE6006B9FC1 /* MapKit.framework */; };
 		E5184A82158D50FC00CD8310 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E5184A81158D50FC00CD8310 /* libicucore.dylib */; };
 		E5184A84158D511200CD8310 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5184A83158D511200CD8310 /* Security.framework */; };
 		E5184BB5158DD53800CD8310 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = E5184B35158DD53700CD8310 /* ASIAuthenticationDialog.m */; };
@@ -92,6 +107,28 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E50AA18C158DE3F2006B9FC1 /* CGPointAdditions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CGPointAdditions.c; sourceTree = "<group>"; };
+		E50AA18D158DE3F2006B9FC1 /* CGPointAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPointAdditions.h; sourceTree = "<group>"; };
+		E50AA18F158DE3F2006B9FC1 /* FragmentShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader.glsl; sourceTree = "<group>"; };
+		E50AA190158DE3F2006B9FC1 /* NextPageFragmentShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NextPageFragmentShader.glsl; sourceTree = "<group>"; };
+		E50AA191158DE3F2006B9FC1 /* NextPageNoTextureFragmentShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NextPageNoTextureFragmentShader.glsl; sourceTree = "<group>"; };
+		E50AA192158DE3F2006B9FC1 /* NextPageNoTextureVertexShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NextPageNoTextureVertexShader.glsl; sourceTree = "<group>"; };
+		E50AA193158DE3F2006B9FC1 /* NextPageVertexShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NextPageVertexShader.glsl; sourceTree = "<group>"; };
+		E50AA194158DE3F2006B9FC1 /* VertexShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VertexShader.glsl; sourceTree = "<group>"; };
+		E50AA195158DE3F2006B9FC1 /* XBAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBAnimation.h; sourceTree = "<group>"; };
+		E50AA196158DE3F2006B9FC1 /* XBAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBAnimation.m; sourceTree = "<group>"; };
+		E50AA197158DE3F2006B9FC1 /* XBAnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBAnimationManager.h; sourceTree = "<group>"; };
+		E50AA198158DE3F2006B9FC1 /* XBAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBAnimationManager.m; sourceTree = "<group>"; };
+		E50AA199158DE3F2006B9FC1 /* XBCurlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBCurlView.h; sourceTree = "<group>"; };
+		E50AA19A158DE3F2006B9FC1 /* XBCurlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBCurlView.m; sourceTree = "<group>"; };
+		E50AA19B158DE3F2006B9FC1 /* XBPageCurlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBPageCurlView.h; sourceTree = "<group>"; };
+		E50AA19C158DE3F2006B9FC1 /* XBPageCurlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBPageCurlView.m; sourceTree = "<group>"; };
+		E50AA19D158DE3F2006B9FC1 /* XBPageDragView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBPageDragView.h; sourceTree = "<group>"; };
+		E50AA19E158DE3F2006B9FC1 /* XBPageDragView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBPageDragView.m; sourceTree = "<group>"; };
+		E50AA19F158DE3F2006B9FC1 /* XBSnappingPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBSnappingPoint.h; sourceTree = "<group>"; };
+		E50AA1A0158DE3F2006B9FC1 /* XBSnappingPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBSnappingPoint.m; sourceTree = "<group>"; };
+		E50AA1B3158DECD6006B9FC1 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		E50AA1B5158DECE6006B9FC1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E5184A81158D50FC00CD8310 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		E5184A83158D511200CD8310 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E5184B34158DD53700CD8310 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
@@ -262,6 +299,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E50AA1B6158DECE6006B9FC1 /* MapKit.framework in Frameworks */,
+				E50AA1B4158DECD6006B9FC1 /* OpenGLES.framework in Frameworks */,
 				E5D3564B1585848E00B69F44 /* Foundation.framework in Frameworks */,
 				E5184A84158D511200CD8310 /* Security.framework in Frameworks */,
 				E5A57C28158AA98E00D4809E /* CFNetwork.framework in Frameworks */,
@@ -283,9 +322,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E50AA18B158DE3F2006B9FC1 /* XBPageCurl */ = {
+			isa = PBXGroup;
+			children = (
+				E50AA18C158DE3F2006B9FC1 /* CGPointAdditions.c */,
+				E50AA18D158DE3F2006B9FC1 /* CGPointAdditions.h */,
+				E50AA18E158DE3F2006B9FC1 /* Resources */,
+				E50AA195158DE3F2006B9FC1 /* XBAnimation.h */,
+				E50AA196158DE3F2006B9FC1 /* XBAnimation.m */,
+				E50AA197158DE3F2006B9FC1 /* XBAnimationManager.h */,
+				E50AA198158DE3F2006B9FC1 /* XBAnimationManager.m */,
+				E50AA199158DE3F2006B9FC1 /* XBCurlView.h */,
+				E50AA19A158DE3F2006B9FC1 /* XBCurlView.m */,
+				E50AA19B158DE3F2006B9FC1 /* XBPageCurlView.h */,
+				E50AA19C158DE3F2006B9FC1 /* XBPageCurlView.m */,
+				E50AA19D158DE3F2006B9FC1 /* XBPageDragView.h */,
+				E50AA19E158DE3F2006B9FC1 /* XBPageDragView.m */,
+				E50AA19F158DE3F2006B9FC1 /* XBSnappingPoint.h */,
+				E50AA1A0158DE3F2006B9FC1 /* XBSnappingPoint.m */,
+			);
+			path = XBPageCurl;
+			sourceTree = "<group>";
+		};
+		E50AA18E158DE3F2006B9FC1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E50AA18F158DE3F2006B9FC1 /* FragmentShader.glsl */,
+				E50AA190158DE3F2006B9FC1 /* NextPageFragmentShader.glsl */,
+				E50AA191158DE3F2006B9FC1 /* NextPageNoTextureFragmentShader.glsl */,
+				E50AA192158DE3F2006B9FC1 /* NextPageNoTextureVertexShader.glsl */,
+				E50AA193158DE3F2006B9FC1 /* NextPageVertexShader.glsl */,
+				E50AA194158DE3F2006B9FC1 /* VertexShader.glsl */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		E5184B32158DD53700CD8310 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				E50AA18B158DE3F2006B9FC1 /* XBPageCurl */,
 				E5184C54158DD7C700CD8310 /* ZBarSDK */,
 				E5184B33158DD53700CD8310 /* ASIHTTPRequest */,
 				E5184B4B158DD53800CD8310 /* JSON */,
@@ -590,6 +665,8 @@
 		E5D356471585848E00B69F44 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E50AA1B5158DECE6006B9FC1 /* MapKit.framework */,
+				E50AA1B3158DECD6006B9FC1 /* OpenGLES.framework */,
 				E5184A83158D511200CD8310 /* Security.framework */,
 				E5184A81158D50FC00CD8310 /* libicucore.dylib */,
 				E5A57C2B158AA99E00D4809E /* SystemConfiguration.framework */,
@@ -698,6 +775,12 @@
 				E5184C74158DD7C700CD8310 /* zbar-help.html in Resources */,
 				E5184C75158DD7C700CD8310 /* zbar-helpicons.png in Resources */,
 				E5184C76158DD7C700CD8310 /* zbar-samples.png in Resources */,
+				E50AA1A2158DE3F2006B9FC1 /* FragmentShader.glsl in Resources */,
+				E50AA1A3158DE3F2006B9FC1 /* NextPageFragmentShader.glsl in Resources */,
+				E50AA1A4158DE3F2006B9FC1 /* NextPageNoTextureFragmentShader.glsl in Resources */,
+				E50AA1A5158DE3F2006B9FC1 /* NextPageNoTextureVertexShader.glsl in Resources */,
+				E50AA1A6158DE3F2006B9FC1 /* NextPageVertexShader.glsl in Resources */,
+				E50AA1A7158DE3F2006B9FC1 /* VertexShader.glsl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -765,6 +848,13 @@
 				E5184BE0158DD53800CD8310 /* NSData+SRB64Additions.m in Sources */,
 				E5184BE1158DD53800CD8310 /* SRWebSocket.m in Sources */,
 				E5184BE8158DD60200CD8310 /* Barcode.mm in Sources */,
+				E50AA1A1158DE3F2006B9FC1 /* CGPointAdditions.c in Sources */,
+				E50AA1A8158DE3F2006B9FC1 /* XBAnimation.m in Sources */,
+				E50AA1A9158DE3F2006B9FC1 /* XBAnimationManager.m in Sources */,
+				E50AA1AA158DE3F2006B9FC1 /* XBCurlView.m in Sources */,
+				E50AA1AB158DE3F2006B9FC1 /* XBPageCurlView.m in Sources */,
+				E50AA1AC158DE3F2006B9FC1 /* XBPageDragView.m in Sources */,
+				E50AA1AD158DE3F2006B9FC1 /* XBSnappingPoint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
