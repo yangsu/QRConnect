@@ -1,5 +1,12 @@
-var socket = io.connect('http://localhost');
-socket.on('news', function (data) {
+var chat = io.connect('http://localhost/chat')
+  , connect = io.connect('http://localhost/connect')
+
+chat.on('a message', function (data) {
   console.log(data);
-  socket.emit('my other event', { my: 'data' });
+  chat.emit('hi!');
+});
+
+connect.on('success', function (data) {
+  console.log(data);
+  connect.emit('woot');
 });

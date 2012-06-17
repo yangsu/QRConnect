@@ -38,9 +38,21 @@ app.listen(3000, function(){
 });
 
 // Socket.io
-io.sockets.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    console.log(data);
+var chat = io
+  .of('/chat')
+  .on('connection', function (socket) {
+    socket.emit('a message', {
+        that: 'only'
+      , '/chat': 'will get'
+    });
+    chat.emit('a message', {
+        everyone: 'in'
+      , '/chat': 'will get'
+    });
   });
-});
+
+var connect = io
+  .of('/connect')
+  .on('connection', function (socket) {
+    socket.emit('success', { msg: 'true' });
+  });
