@@ -12,3 +12,8 @@ exports.index = function(req, res){
     ]
   })
 };
+
+exports.getToken = function(req, res){
+  var util = require('../lib/util');
+  res.json({token: util.randomGenerator()});
+};
