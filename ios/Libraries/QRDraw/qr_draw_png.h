@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include "qr_draw.h"
-#include <png.h>
+#include "png.h"
 
 //=============================================================================
 // QRDrawPNG ƒNƒ‰ƒX

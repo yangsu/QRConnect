@@ -14,7 +14,10 @@
 #import "XBCurlView.h"
 
 @interface WaitingRoomViewController() <BackendDelegate>
-
+{
+    BOOL isCurled;
+}
+@property (nonatomic, assign) BOOL isCurled;
 @end
 
 @implementation WaitingRoomViewController
@@ -22,6 +25,7 @@
 @synthesize imageView;
 @synthesize curlView;
 @synthesize delegate;
+@synthesize isCurled;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

@@ -920,7 +920,6 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QRConnect/QRConnect-Prefix.pch";
-				"HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/**";
 				INFOPLIST_FILE = "QRConnect/QRConnect-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
@@ -938,7 +937,6 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QRConnect/QRConnect-Prefix.pch";
-				"HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/**";
 				INFOPLIST_FILE = "QRConnect/QRConnect-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (

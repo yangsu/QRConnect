@@ -43,7 +43,7 @@ static BackendConnecter *sharedInstance = nil;
 
 - (void) requestQR
 {
-    NSURL *url = [NSURL URLWithString:@"http://allseeing-i.com"];
+    NSURL *url = [NSURL URLWithString:SERVER_TOKEN];
     __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     [request setCompletionBlock:^{
         [self.delegate receiveQR:[request responseString]];
