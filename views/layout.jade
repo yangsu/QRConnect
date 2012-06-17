@@ -3,4 +3,7 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    - each s in scripts
+      script(src=s)
+
   body!= body
