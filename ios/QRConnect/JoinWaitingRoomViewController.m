@@ -23,11 +23,13 @@
 
 -(void)viewDidLoad
 {
+    [super viewDidLoad];
     self.scanFinished = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
     if (!self.scanFinished)
     {
         ZBarReaderViewController *reader = [ZBarReaderViewController new];
