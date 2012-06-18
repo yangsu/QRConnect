@@ -7,10 +7,21 @@ html
       script(src=s)
 
   body!= body
-    div#userContainer
-      b USERS
-      #users
-    div#conversationContainer
-      #conversation
-      input#data
-      input#datasend(type='button', value='send')
+    #buttons
+      input#roomname
+      button#createRoom Create Room
+    b You are currently in&nbsp;
+      span#label Lobby
+    #status
+    #content
+      #roomContainer
+        b Rooms
+        #rooms
+      #userContainer
+        b USERS
+        #users
+      #conversationContainer
+        #conversation
+        input#data
+        button#datasend Send
+        button#leaveRoom Leave

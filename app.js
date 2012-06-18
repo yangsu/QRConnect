@@ -3,7 +3,8 @@
  * Module dependencies.
  */
 
-var express = require('express')
+var _ = require('underscore')
+  , express = require('express')
   , stylus = require('stylus')
   , routes = require('./routes')
   , app = module.exports = express.createServer()
@@ -43,23 +44,76 @@ app.listen(3000, function(){
 
 // Socket.io
 var usernames = {};
+var rooms = {};
 var chat = io.of('/chat');
 chat
 .on('connection', function (socket) {
   socket
     .on('sendchat', function (data) {
-      chat.emit('updatechat', socket.username, data);
+      if (data && data.room && data.message && rooms[data.room]) {
+        chat.in(data.room).emit('updatechat', socket.username, data.message);
+      }
     })
     .on('adduser', function(username){
       socket.username = username;
       usernames[username] = username;
       socket.emit('updatechat', 'SERVER', 'you have connected');
-      socket.broadcast.emit('updatechat', 'SERVER', username + ' has connected');
-      chat.emit('updateusers', usernames);
+      // socket.broadcast.emit('updatechat', 'SERVER', username + ' has connected');
+      chat.emit('updateusers', _.keys(usernames));
+      socket.emit('updaterooms', _.keys(rooms));
+      console.log(_.keys(usernames));
+      console.log(_.keys(rooms));
+    })
+    .on('createroom', function (name) {
+      if (name && rooms[name]) {
+        socket.emit('error', {
+          message: '"' + name + '" already exists'
+        });
+      } else {
+        rooms[name] = [ socket.username ];
+        socket.emit('roomcreated', name);
+        socket.join(name);
+        console.log(socket.username + ' joined ' + name);
+        chat.emit('updaterooms', _.keys(rooms));
+        chat.emit('updateusers', rooms[name]);
+      }
+    })
+    .on('joinroom', function (name) {
+      console.log(rooms);
+      if (name && rooms[name]) {
+        if (!_.contains(rooms[name], socket.username)) {
+          rooms[name].push(socket.username);
+          socket.join(name);
+          socket.emit('roomjoined', name);
+          chat.in(name).emit('newguest', socket.username);
+          chat.in(name).emit('updateusers', rooms[name]);
+        } else {
+          socket.emit('error', {
+            message: 'You are already in this room'
+          });
+        }
+      } else {
+        socket.emit('error', {
+          message: '"' + name + '" doesn\'t exist'
+        });
+      }
+    })
+    .on('leaveroom', function (name) {
+      if (name && rooms[name]) {
+        rooms[name] = _.without(rooms[name], socket.username);
+        if (!rooms[name].length) {
+          delete rooms[name];
+          chat.emit('updaterooms', _.keys(rooms));
+        }
+        socket.leave(name);
+        chat.in(name).emit('guestleaving', socket.username);
+        chat.in(name).emit('updateusers', rooms[name]);
+        socket.emit('lobby', _.keys(usernames));
+      }
     })
     .on('disconnect', function(){
       delete usernames[socket.username];
-      socket.broadcast.emit('updateusers', usernames);
+      socket.broadcast.emit('updateusers', _.keys(usernames));
       socket.broadcast.emit('updatechat', 'SERVER', socket.username + ' has disconnected');
     });
 });
