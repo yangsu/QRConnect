@@ -8,6 +8,7 @@ exports.index = function(req, res){
     title: 'Express',
     scripts: [
       'javascripts/libs/socket.io.js',
+      'javascripts/libs/jquery-1.7.2.js',
       'javascripts/script.js'
     ]
   })
