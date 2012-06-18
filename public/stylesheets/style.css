@@ -6,3 +6,20 @@ body {
 a {
   color: #00B7FF;
 }
+
+#userContainer {
+  float: left;
+  width: 100px;
+  border-right: 1px solid black;
+  height: 300px;
+  padding: 10px;
+  overflow: scroll-y;
+}
+
+#conversationContainer {
+  float:left;
+  width:300px;
+  height:250px;
+  overflow:scroll-y;
+  padding:10px;
+}

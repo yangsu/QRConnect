@@ -38,18 +38,27 @@ app.listen(3000, function(){
 });
 
 // Socket.io
-var chat = io
-  .of('/chat')
-  .on('connection', function (socket) {
-    socket.emit('a message', {
-        that: 'only'
-      , '/chat': 'will get'
+var usernames = {};
+var chat = io.of('/chat');
+chat
+.on('connection', function (socket) {
+  socket
+    .on('sendchat', function (data) {
+      chat.emit('updatechat', socket.username, data);
+    })
+    .on('adduser', function(username){
+      socket.username = username;
+      usernames[username] = username;
+      socket.emit('updatechat', 'SERVER', 'you have connected');
+      socket.broadcast.emit('updatechat', 'SERVER', username + ' has connected');
+      chat.emit('updateusers', usernames);
+    })
+    .on('disconnect', function(){
+      delete usernames[socket.username];
+      socket.broadcast.emit('updateusers', usernames);
+      socket.broadcast.emit('updatechat', 'SERVER', socket.username + ' has disconnected');
     });
-    chat.emit('a message', {
-        everyone: 'in'
-      , '/chat': 'will get'
-    });
-  });
+});
 
 var connect = io
   .of('/connect')
