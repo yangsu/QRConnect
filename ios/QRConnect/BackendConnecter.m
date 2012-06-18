@@ -47,8 +47,7 @@ static BackendConnecter *sharedInstance = nil;
     __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     [request setCompletionBlock:^{
         [self.delegate receiveQR:[request responseString]];
-        //[self connectQR:[request responseString]];
-        [self connectQR:@"Blah"];
+        [self connectQR:[request responseString]];
     }];
     [request setFailedBlock:^{
         [self.delegate requestQRFailed:[request error]];

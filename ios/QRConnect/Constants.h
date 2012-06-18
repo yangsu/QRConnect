@@ -13,9 +13,6 @@ extern NSString * const CREATE_WAITING_ROOM;
 extern NSString * const SETTINGS;
 extern NSString * const ACCEPT_QR;
 
-//QRCode dimensions
-extern int const IPHONE_QR_DIM;
-
 //Server URL
 extern NSString * const SERVER_URL;
 extern NSString * const SERVER_TOKEN;

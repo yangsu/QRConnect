@@ -22,17 +22,26 @@
 
 @interface WaitingRoomViewController : UIViewController 
 {
+    XBCurlView *curlView;
     IBOutlet UIImageView *imageView;
-    IBOutlet XBCurlView *curlView;
+    IBOutlet UIView *frontView;
+    IBOutlet UIView *backView;
+    IBOutlet UIActivityIndicatorView *spinnerView;
+    
     id<WaitingRoomDelegate> delegate;
+
 }
 
 - (void) setQRImage:(NSString *) qrCode;
 - (IBAction) doneAction:(id)sender;
-- (IBAction) settingsAction:(id)sender;
+- (IBAction) uncurlAction:(id)sender;
 
+@property (nonatomic,retain) XBCurlView *curlView;
 @property (nonatomic,retain) IBOutlet UIImageView *imageView;
-@property (nonatomic,retain) IBOutlet XBCurlView *curlView;
+@property (nonatomic, retain) IBOutlet UIView *frontView;
+@property (nonatomic, retain) IBOutlet UIView *backView;
+@property (nonatomic, retain) IBOutlet UIActivityIndicatorView *spinnerView;
+
 @property (nonatomic, assign) id<WaitingRoomDelegate> delegate;
 
 @end

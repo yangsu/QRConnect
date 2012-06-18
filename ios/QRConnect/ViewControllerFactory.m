@@ -7,8 +7,6 @@
 //
 
 #import "ViewControllerFactory.h"
-#import "WaitingRoomViewController.h"
-#import "SettingsViewController.h"
 
 @implementation ViewControllerFactory
 
