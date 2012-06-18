@@ -4,17 +4,21 @@
  */
 
 var express = require('express')
+  , stylus = require('stylus')
   , routes = require('./routes')
   , app = module.exports = express.createServer()
   , io = require('socket.io').listen(app);
 
 // Configuration
-
 app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
   app.use(express.bodyParser());
   app.use(express.methodOverride());
+  app.use(stylus.middleware({
+    src: __dirname + '/views',
+    dest: __dirname + '/public'
+  }));
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));
 });

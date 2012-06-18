@@ -1,0 +1,11 @@
+h1 {
+  font-size: 12px;
+}
+#userContainer {
+  float: left;
+  width: 100px;
+  border-right: 1px solid #000;
+  height: 300px;
+  padding: 10px;
+  overflow: scroll-y;
+}
