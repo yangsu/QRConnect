@@ -42,3 +42,6 @@ node_modules
 
 # Stylus
 public/stylesheets/
+
+# Sublime Text
+*.sublime*
