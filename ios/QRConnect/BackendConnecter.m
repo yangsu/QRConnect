@@ -71,6 +71,11 @@ static BackendConnecter *sharedInstance = nil;
     }
 }
 
+- (void)sendMessage:(id)message
+{
+    [self.webSocket send:message];
+}
+
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message
 {
     [self.delegate receiveMessage:message];

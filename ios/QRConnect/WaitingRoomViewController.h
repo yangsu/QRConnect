@@ -34,6 +34,7 @@
 
 - (void) setQRImage:(NSString *) qrCode;
 - (IBAction) doneAction:(id)sender;
+- (IBAction) curlAction:(id)sender;
 - (IBAction) uncurlAction:(id)sender;
 
 @property (nonatomic,retain) XBCurlView *curlView;

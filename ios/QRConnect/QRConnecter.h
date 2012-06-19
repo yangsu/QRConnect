@@ -10,8 +10,8 @@
 
 @protocol QRConnecterDelegate <NSObject>
 
--(void) connectionEstablished:(UIViewController *) controller;
--(void) connectionFailed:(UIViewController *) controller;
++(void) connectionEstablished:(UIViewController *) controller;
++(void) connectionFailed:(UIViewController *) controller;
 
 
 @end

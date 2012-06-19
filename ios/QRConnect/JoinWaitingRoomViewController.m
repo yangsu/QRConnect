@@ -70,6 +70,7 @@
         break;
     if(symbol != nil) {
         [self setQRImage:symbol.data];
+        [[BackendConnecter sharedInstance] connectQR:symbol.data];
         self.scanFinished = YES;
         [reader dismissModalViewControllerAnimated:YES];
     }

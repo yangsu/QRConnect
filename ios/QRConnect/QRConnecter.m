@@ -10,6 +10,7 @@
 #import "ViewControllerFactory.h"
 #import "WaitingRoomViewController.h"
 #import "BackendConnecter.h"
+#import "DNBSwipyNavigationController.h"
 
 @interface QRConnecter () <WaitingRoomDelegate, BackendDelegate>
 
@@ -21,12 +22,12 @@
 @synthesize navigationController;
 
 
--(UIViewController *) createQRCode;
++(UIViewController *) createQRCode;
 {
     return [self setUpViewController:CREATE_WAITING_ROOM];
 }
 
--(UIViewController *) joinQRCode;
++(UIViewController *) joinQRCode;
 {
     return [self setUpViewController:JOIN_WAITING_ROOM];
 
@@ -34,9 +35,12 @@
 
 -(UIViewController *) setUpViewController:(NSString *) identifier
 {
+    
     UIViewController *first = [[ViewControllerFactory sharedInstance] makeController:identifier];
     ((WaitingRoomViewController *)first).delegate = self;
-    return first;
+    DNBSwipyNavigationController *nav = [[DNBSwipyNavigationController alloc] initWithRootViewController:first];
+
+    return nav;
 }
 
 - (void) connectionEstablished: (WaitingRoomViewController *) controller
