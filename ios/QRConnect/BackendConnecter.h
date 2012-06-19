@@ -28,6 +28,7 @@
 - (void)requestQR;
 - (void)connectQR:(NSString *)qrCode;
 - (void)closeQR;
+- (void) sendMessage:(id) message;
 
 @property (nonatomic, assign) id <BackendDelegate> delegate;
 @property (nonatomic, retain) SRWebSocket *webSocket;

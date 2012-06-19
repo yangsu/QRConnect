@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E5085C51158F071A00B3B919 /* ConnectListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5085C4F158F071A00B3B919 /* ConnectListViewController.m */; };
+		E5085C52158F071A00B3B919 /* ConnectListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5085C50158F071A00B3B919 /* ConnectListViewController.xib */; };
+		E5085C56158F081000B3B919 /* ChatRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5085C54158F081000B3B919 /* ChatRoomViewController.m */; };
+		E5085C57158F081000B3B919 /* ChatRoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5085C55158F081000B3B919 /* ChatRoomViewController.xib */; };
+		E5085C59158F0F8700B3B919 /* WaitingRoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5085C58158F0F8700B3B919 /* WaitingRoomViewController.xib */; };
+		E5085C5B158F0F9400B3B919 /* JoinWaitingRoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5085C5A158F0F9400B3B919 /* JoinWaitingRoomViewController.xib */; };
 		E50AA1A1158DE3F2006B9FC1 /* CGPointAdditions.c in Sources */ = {isa = PBXBuildFile; fileRef = E50AA18C158DE3F2006B9FC1 /* CGPointAdditions.c */; };
 		E50AA1A2158DE3F2006B9FC1 /* FragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = E50AA18F158DE3F2006B9FC1 /* FragmentShader.glsl */; };
 		E50AA1A3158DE3F2006B9FC1 /* NextPageFragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = E50AA190158DE3F2006B9FC1 /* NextPageFragmentShader.glsl */; };
@@ -81,18 +87,21 @@
 		E528A0531587352700BEE946 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E528A0521587352700BEE946 /* libiconv.dylib */; };
 		E537FEDF1585E38700734D0C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E537FEDE1585E38700734D0C /* libz.dylib */; };
 		E537FEE71585ECE100734D0C /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E537FEE51585ECE100734D0C /* MainMenuViewController.m */; };
-		E537FEE81585ECE100734D0C /* MainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E537FEE61585ECE100734D0C /* MainMenuViewController.xib */; };
 		E537FEEC1585ED2200734D0C /* WaitingRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E537FEEA1585ED2100734D0C /* WaitingRoomViewController.m */; };
 		E59CFDE515884E2B0004B1C8 /* QRConnecter.m in Sources */ = {isa = PBXBuildFile; fileRef = E59CFDE415884E2B0004B1C8 /* QRConnecter.m */; };
 		E59CFDEE158856320004B1C8 /* ViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E59CFDED158856320004B1C8 /* ViewControllerFactory.m */; };
 		E59CFDF1158858B80004B1C8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = E59CFDF0158858B80004B1C8 /* Constants.m */; };
 		E5A57B8F158977A900D4809E /* BackendConnecter.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A57B8E158977A900D4809E /* BackendConnecter.m */; };
-		E5A57BA1158A452300D4809E /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A57BA0158A452200D4809E /* SidebarViewController.m */; };
 		E5A57C28158AA98E00D4809E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A57C27158AA98E00D4809E /* CFNetwork.framework */; };
 		E5A57C2A158AA99400D4809E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A57C29158AA99300D4809E /* MobileCoreServices.framework */; };
 		E5A57C2C158AA99E00D4809E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A57C2B158AA99E00D4809E /* SystemConfiguration.framework */; };
-		E5A6F649158EB97F00DDA516 /* CreateWaitingRoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A6F648158EB97F00DDA516 /* CreateWaitingRoomViewController.xib */; };
-		E5A6F64D158EC37600DDA516 /* JoinWaitingRoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A6F64C158EC37600DDA516 /* JoinWaitingRoomViewController.xib */; };
+		E5A6F65B158ED32300DDA516 /* chat.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6F654158ED32300DDA516 /* chat.png */; };
+		E5A6F65C158ED32300DDA516 /* friends.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6F655158ED32300DDA516 /* friends.png */; };
+		E5A6F65D158ED32300DDA516 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6F656158ED32300DDA516 /* settings.png */; };
+		E5A6F65E158ED32300DDA516 /* CreateWaitingRoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A6F658158ED32300DDA516 /* CreateWaitingRoomViewController.xib */; };
+		E5A6F660158ED32300DDA516 /* MainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A6F65A158ED32300DDA516 /* MainMenuViewController.xib */; };
+		E5A6F66A158ED73E00DDA516 /* DNBSwipyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A6F667158ED73E00DDA516 /* DNBSwipyNavigationController.m */; };
+		E5A6F66B158ED73E00DDA516 /* UIViewController+SwipyAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A6F669158ED73E00DDA516 /* UIViewController+SwipyAdditions.m */; };
 		E5D356491585848E00B69F44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D356481585848E00B69F44 /* UIKit.framework */; };
 		E5D3564B1585848E00B69F44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D3564A1585848E00B69F44 /* Foundation.framework */; };
 		E5D3564D1585848E00B69F44 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D3564C1585848E00B69F44 /* CoreGraphics.framework */; };
@@ -104,6 +113,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E5085C4E158F071A00B3B919 /* ConnectListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectListViewController.h; sourceTree = "<group>"; };
+		E5085C4F158F071A00B3B919 /* ConnectListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectListViewController.m; sourceTree = "<group>"; };
+		E5085C50158F071A00B3B919 /* ConnectListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ConnectListViewController.xib; path = ../../ConnectListViewController.xib; sourceTree = "<group>"; };
+		E5085C53158F081000B3B919 /* ChatRoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatRoomViewController.h; sourceTree = "<group>"; };
+		E5085C54158F081000B3B919 /* ChatRoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatRoomViewController.m; sourceTree = "<group>"; };
+		E5085C55158F081000B3B919 /* ChatRoomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ChatRoomViewController.xib; path = ../../ChatRoomViewController.xib; sourceTree = "<group>"; };
+		E5085C58158F0F8700B3B919 /* WaitingRoomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaitingRoomViewController.xib; sourceTree = "<group>"; };
+		E5085C5A158F0F9400B3B919 /* JoinWaitingRoomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoinWaitingRoomViewController.xib; sourceTree = "<group>"; };
 		E50AA18C158DE3F2006B9FC1 /* CGPointAdditions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CGPointAdditions.c; sourceTree = "<group>"; };
 		E50AA18D158DE3F2006B9FC1 /* CGPointAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPointAdditions.h; sourceTree = "<group>"; };
 		E50AA18F158DE3F2006B9FC1 /* FragmentShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader.glsl; sourceTree = "<group>"; };
@@ -253,7 +270,6 @@
 		E537FEDE1585E38700734D0C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		E537FEE41585ECE100734D0C /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
 		E537FEE51585ECE100734D0C /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
-		E537FEE61585ECE100734D0C /* MainMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenuViewController.xib; sourceTree = "<group>"; };
 		E537FEE91585ED2100734D0C /* WaitingRoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaitingRoomViewController.h; sourceTree = "<group>"; };
 		E537FEEA1585ED2100734D0C /* WaitingRoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaitingRoomViewController.m; sourceTree = "<group>"; };
 		E59CFDE315884E2B0004B1C8 /* QRConnecter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRConnecter.h; sourceTree = "<group>"; };
@@ -264,13 +280,18 @@
 		E59CFDF0158858B80004B1C8 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		E5A57B8D158977A900D4809E /* BackendConnecter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackendConnecter.h; sourceTree = "<group>"; };
 		E5A57B8E158977A900D4809E /* BackendConnecter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackendConnecter.m; sourceTree = "<group>"; };
-		E5A57B9F158A452200D4809E /* SidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarViewController.h; sourceTree = "<group>"; };
-		E5A57BA0158A452200D4809E /* SidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarViewController.m; sourceTree = "<group>"; };
 		E5A57C27158AA98E00D4809E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		E5A57C29158AA99300D4809E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		E5A57C2B158AA99E00D4809E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		E5A6F648158EB97F00DDA516 /* CreateWaitingRoomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateWaitingRoomViewController.xib; sourceTree = "<group>"; };
-		E5A6F64C158EC37600DDA516 /* JoinWaitingRoomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoinWaitingRoomViewController.xib; sourceTree = "<group>"; };
+		E5A6F654158ED32300DDA516 /* chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat.png; sourceTree = "<group>"; };
+		E5A6F655158ED32300DDA516 /* friends.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = friends.png; sourceTree = "<group>"; };
+		E5A6F656158ED32300DDA516 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		E5A6F658158ED32300DDA516 /* CreateWaitingRoomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateWaitingRoomViewController.xib; sourceTree = "<group>"; };
+		E5A6F65A158ED32300DDA516 /* MainMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenuViewController.xib; sourceTree = "<group>"; };
+		E5A6F666158ED73E00DDA516 /* DNBSwipyNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNBSwipyNavigationController.h; path = DNBSwipy/DNBSwipyNavigationController.h; sourceTree = "<group>"; };
+		E5A6F667158ED73E00DDA516 /* DNBSwipyNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNBSwipyNavigationController.m; path = DNBSwipy/DNBSwipyNavigationController.m; sourceTree = "<group>"; };
+		E5A6F668158ED73E00DDA516 /* UIViewController+SwipyAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+SwipyAdditions.h"; path = "DNBSwipy/UIViewController+SwipyAdditions.h"; sourceTree = "<group>"; };
+		E5A6F669158ED73E00DDA516 /* UIViewController+SwipyAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+SwipyAdditions.m"; path = "DNBSwipy/UIViewController+SwipyAdditions.m"; sourceTree = "<group>"; };
 		E5D356441585848E00B69F44 /* QRConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D356481585848E00B69F44 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E5D3564A1585848E00B69F44 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -353,6 +374,7 @@
 		E5184B32158DD53700CD8310 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				E5A6F665158ED72D00DDA516 /* DNBSwipy */,
 				E50AA18B158DE3F2006B9FC1 /* XBPageCurl */,
 				E5184C54158DD7C700CD8310 /* ZBarSDK */,
 				E5184B33158DD53700CD8310 /* ASIHTTPRequest */,
@@ -582,13 +604,15 @@
 		E528A02215871E9400BEE946 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E5A57B9F158A452200D4809E /* SidebarViewController.h */,
-				E5A57BA0158A452200D4809E /* SidebarViewController.m */,
 				E59CFDEC158856320004B1C8 /* ViewControllerFactory.h */,
 				E59CFDED158856320004B1C8 /* ViewControllerFactory.m */,
-				E5A57C2D158AB46A00D4809E /* WaitingRoom */,
 				E537FEE41585ECE100734D0C /* MainMenuViewController.h */,
 				E537FEE51585ECE100734D0C /* MainMenuViewController.m */,
+				E5085C4E158F071A00B3B919 /* ConnectListViewController.h */,
+				E5085C4F158F071A00B3B919 /* ConnectListViewController.m */,
+				E5085C53158F081000B3B919 /* ChatRoomViewController.h */,
+				E5085C54158F081000B3B919 /* ChatRoomViewController.m */,
+				E5A57C2D158AB46A00D4809E /* WaitingRoom */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -615,22 +639,47 @@
 			name = WaitingRoom;
 			sourceTree = "<group>";
 		};
-		E5B09472158965CA00465AD9 /* Resources */ = {
+		E5A6F652158ED32300DDA516 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E5B09473158965EB00465AD9 /* Views */,
+				E5A6F653158ED32300DDA516 /* Icons */,
+				E5A6F657158ED32300DDA516 /* Views */,
 			);
-			name = Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
-		E5B09473158965EB00465AD9 /* Views */ = {
+		E5A6F653158ED32300DDA516 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
-				E5A6F648158EB97F00DDA516 /* CreateWaitingRoomViewController.xib */,
-				E5A6F64C158EC37600DDA516 /* JoinWaitingRoomViewController.xib */,
-				E537FEE61585ECE100734D0C /* MainMenuViewController.xib */,
+				E5A6F654158ED32300DDA516 /* chat.png */,
+				E5A6F655158ED32300DDA516 /* friends.png */,
+				E5A6F656158ED32300DDA516 /* settings.png */,
 			);
-			name = Views;
+			path = Icons;
+			sourceTree = "<group>";
+		};
+		E5A6F657158ED32300DDA516 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E5085C55158F081000B3B919 /* ChatRoomViewController.xib */,
+				E5085C50158F071A00B3B919 /* ConnectListViewController.xib */,
+				E5A6F658158ED32300DDA516 /* CreateWaitingRoomViewController.xib */,
+				E5085C5A158F0F9400B3B919 /* JoinWaitingRoomViewController.xib */,
+				E5085C58158F0F8700B3B919 /* WaitingRoomViewController.xib */,
+				E5A6F65A158ED32300DDA516 /* MainMenuViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E5A6F665158ED72D00DDA516 /* DNBSwipy */ = {
+			isa = PBXGroup;
+			children = (
+				E5A6F666158ED73E00DDA516 /* DNBSwipyNavigationController.h */,
+				E5A6F667158ED73E00DDA516 /* DNBSwipyNavigationController.m */,
+				E5A6F668158ED73E00DDA516 /* UIViewController+SwipyAdditions.h */,
+				E5A6F669158ED73E00DDA516 /* UIViewController+SwipyAdditions.m */,
+			);
+			name = DNBSwipy;
 			sourceTree = "<group>";
 		};
 		E5D356391585848E00B69F44 = {
@@ -677,7 +726,7 @@
 		E5D3564E1585848E00B69F44 /* QRConnect */ = {
 			isa = PBXGroup;
 			children = (
-				E5B09472158965CA00465AD9 /* Resources */,
+				E5A6F652158ED32300DDA516 /* Resources */,
 				E5D3564F1585848E00B69F44 /* Supporting Files */,
 				E5A57B8B1589774300D4809E /* Backend */,
 				E528A02215871E9400BEE946 /* ViewControllers */,
@@ -755,7 +804,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5D356531585848E00B69F44 /* InfoPlist.strings in Resources */,
-				E537FEE81585ECE100734D0C /* MainMenuViewController.xib in Resources */,
 				E5184C73158DD7C700CD8310 /* zbar-back.png in Resources */,
 				E5184C74158DD7C700CD8310 /* zbar-help.html in Resources */,
 				E5184C75158DD7C700CD8310 /* zbar-helpicons.png in Resources */,
@@ -766,8 +814,15 @@
 				E50AA1A5158DE3F2006B9FC1 /* NextPageNoTextureVertexShader.glsl in Resources */,
 				E50AA1A6158DE3F2006B9FC1 /* NextPageVertexShader.glsl in Resources */,
 				E50AA1A7158DE3F2006B9FC1 /* VertexShader.glsl in Resources */,
-				E5A6F649158EB97F00DDA516 /* CreateWaitingRoomViewController.xib in Resources */,
-				E5A6F64D158EC37600DDA516 /* JoinWaitingRoomViewController.xib in Resources */,
+				E5A6F65B158ED32300DDA516 /* chat.png in Resources */,
+				E5A6F65C158ED32300DDA516 /* friends.png in Resources */,
+				E5A6F65D158ED32300DDA516 /* settings.png in Resources */,
+				E5A6F65E158ED32300DDA516 /* CreateWaitingRoomViewController.xib in Resources */,
+				E5A6F660158ED32300DDA516 /* MainMenuViewController.xib in Resources */,
+				E5085C52158F071A00B3B919 /* ConnectListViewController.xib in Resources */,
+				E5085C57158F081000B3B919 /* ChatRoomViewController.xib in Resources */,
+				E5085C59158F0F8700B3B919 /* WaitingRoomViewController.xib in Resources */,
+				E5085C5B158F0F9400B3B919 /* JoinWaitingRoomViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -786,7 +841,6 @@
 				E59CFDEE158856320004B1C8 /* ViewControllerFactory.m in Sources */,
 				E59CFDF1158858B80004B1C8 /* Constants.m in Sources */,
 				E5A57B8F158977A900D4809E /* BackendConnecter.m in Sources */,
-				E5A57BA1158A452300D4809E /* SidebarViewController.m in Sources */,
 				E5D464D3158B2632000BA2C4 /* JoinWaitingRoomViewController.m in Sources */,
 				E5D464DA158B3195000BA2C4 /* CreateWaitingRoomViewController.m in Sources */,
 				E5184BB5158DD53800CD8310 /* ASIAuthenticationDialog.m in Sources */,
@@ -841,6 +895,10 @@
 				E50AA1AB158DE3F2006B9FC1 /* XBPageCurlView.m in Sources */,
 				E50AA1AC158DE3F2006B9FC1 /* XBPageDragView.m in Sources */,
 				E50AA1AD158DE3F2006B9FC1 /* XBSnappingPoint.m in Sources */,
+				E5A6F66A158ED73E00DDA516 /* DNBSwipyNavigationController.m in Sources */,
+				E5A6F66B158ED73E00DDA516 /* UIViewController+SwipyAdditions.m in Sources */,
+				E5085C51158F071A00B3B919 /* ConnectListViewController.m in Sources */,
+				E5085C56158F081000B3B919 /* ChatRoomViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

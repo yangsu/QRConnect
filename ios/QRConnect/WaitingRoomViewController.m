@@ -12,8 +12,11 @@
 #import "ViewControllerFactory.h"
 #import "BackendConnecter.h"
 #import "XBCurlView.h"
+#import "DNBSwipyNavigationController.h"
+#import "ConnectListViewController.h"
 
-@interface WaitingRoomViewController() <BackendDelegate>
+
+@interface WaitingRoomViewController() <BackendDelegate, DNBSwipyNavigationControllerDelegate>
 {
     BOOL isCurled;
 }
@@ -43,12 +46,28 @@
 {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-
+    
+    DNBSwipyNavigationController *c = (DNBSwipyNavigationController*)self.navigationController;
+    
+    [c.view addGestureRecognizer:c.panGestureRecognizer];
+    
+    c.leftController = [[UIViewController alloc] initWithNibName:@"ConnectListViewController" bundle:nil];
+    c.rightController = [[UIViewController alloc] initWithNibName:@"ChatRoomViewController" bundle:nil];
+    c.bounceEnabled = YES;
+    if (self == [c.viewControllers objectAtIndex:0]) {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"friends"] style:UIBarButtonItemStylePlain target:self action:@selector(showLeftController)];
+        self.navigationItem.leftBarButtonItem.enabled = YES;
+        
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"chat"] style:UIBarButtonItemStylePlain target:self action:@selector(showRightController)];
+    }
+    
+    self.navigationController.delegate = self;
+    
+    
+    
+//    [[UIBarButtonItem appearance] setBackgroundImage:[UIImage imageNamed:@"nav-bar-button"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+//    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav-bar"] forBarMetrics:UIBarMetricsDefault];
+//    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav-bar"] forBarMetrics:UIBarMetricsLandscapePhone];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -64,43 +83,33 @@
     CGRect r = self.frontView.frame;
     self.curlView = [[[XBCurlView alloc] initWithFrame:r] autorelease];
     
-    UISwipeGestureRecognizer *leftRecognizer;
-    
-    leftRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleLeftSwipe:)];
-    [leftRecognizer setDirection:UISwipeGestureRecognizerDirectionLeft];
-    [(UIView *)self.view addGestureRecognizer:leftRecognizer];
-    [leftRecognizer release];
-    
-    UISwipeGestureRecognizer *rightRecognizer;
-
-    rightRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleRightSwipe:)];
-    [rightRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
-    [(UIView *)self.view addGestureRecognizer:rightRecognizer];
-    [rightRecognizer release];
-    
     [self.spinnerView startAnimating];
     
     BackendConnecter *backEnd = [BackendConnecter sharedInstance];
     backEnd.delegate = self;
 }
 
--(void)handleLeftSwipe:(UISwipeGestureRecognizer *)recognizer {
-    if (!isCurled)
-    {
-        CGRect r = self.frontView.frame;
-        [self.curlView drawViewOnFrontOfPage:self.frontView];
-        self.curlView.opaque = NO; //Transparency on the next page (so that the view behind curlView will appear)
-        self.curlView.pageOpaque = YES; //The page to be curled has no transparency
-        [self.curlView curlView:self.frontView cylinderPosition:CGPointMake(r.size.width*0.5, r.size.height*0.67) cylinderAngle:M_PI/8 cylinderRadius:UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad? 160: 80 animatedWithDuration:0.6];
-        isCurled = YES;        
+
+
+- (void)showLeftController {
+    DNBSwipyNavigationController *c = (DNBSwipyNavigationController*)self.navigationController;
+    if (c.currentPosition != ControllerPositionRight) {
+        c.currentPosition = ControllerPositionRight;
+    } else {
+        c.currentPosition = ControllerPositionRegular;
+    }
+}
+- (void)showRightController {
+    DNBSwipyNavigationController *c = (DNBSwipyNavigationController*)self.navigationController;
+    if (c.currentPosition != ControllerPositionLeft) {
+        c.currentPosition = ControllerPositionLeft;
+    } else {
+        c.currentPosition = ControllerPositionRegular;
     }
 }
 
--(void)handleRightSwipe:(UISwipeGestureRecognizer *)recognizer {
-    if(isCurled)
-    {
-        [self uncurlAction:nil];
-    }
+- (BOOL)rightControllerEnabled {
+    return YES;
 }
 
 - (void) receiveQR:(NSString *)qrCode
@@ -114,7 +123,8 @@
 
 - (void) receiveMessage:(id)message
 {
-    NSLog(@"message");
+    DNBSwipyNavigationController *c = (DNBSwipyNavigationController*)self.navigationController;
+    [((ConnectListViewController *)c.leftController).users addObject:@"YOLOLO"];
 }
 
 - (void) setQRImage:(NSString *)qrCode
@@ -128,7 +138,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return !isCurled;
+    return (UIInterfaceOrientationPortrait == interfaceOrientation);
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
@@ -138,6 +148,7 @@
     self.curlView = [[[XBCurlView alloc] initWithFrame:r] autorelease];
 }
 
+
 - (IBAction) doneAction:(id)sender
 {
     //[self.delegate connectionEstablished:self];
@@ -145,10 +156,27 @@
     
 }
 
+- (IBAction) curlAction:(id)sender
+{
+    CGRect r = self.frontView.frame;
+    [self.curlView drawViewOnFrontOfPage:self.frontView];
+    self.curlView.opaque = NO; //Transparency on the next page (so that the view behind curlView will appear)
+    self.curlView.pageOpaque = YES; //The page to be curled has no transparency
+    [self.curlView curlView:self.frontView cylinderPosition:CGPointMake(r.size.width*0.5, r.size.height*0.67) cylinderAngle:M_PI/8 cylinderRadius:UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad? 160: 80 animatedWithDuration:0.6];
+    self.isCurled = YES;   
+    
+    DNBSwipyNavigationController *c = (DNBSwipyNavigationController*)self.navigationController;
+    [c.view removeGestureRecognizer:c.panGestureRecognizer];
+
+}
+
 - (IBAction) uncurlAction:(id)sender
 {
     [self.curlView uncurlAnimatedWithDuration:0.6];
-    isCurled = NO;
+    self.isCurled = NO;
+   
+    DNBSwipyNavigationController *c = (DNBSwipyNavigationController*)self.navigationController;
+    [c.view addGestureRecognizer:c.panGestureRecognizer];
 }
 
 - (void)viewDidUnload

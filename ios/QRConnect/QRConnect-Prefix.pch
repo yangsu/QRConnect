@@ -13,4 +13,5 @@
     #import <Foundation/Foundation.h>
     #import "ZBarSDK.h"
     #import "Constants.h"  
+    #import "UIViewController+SwipyAdditions.h"
 #endif

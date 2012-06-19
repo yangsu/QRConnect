@@ -9,3 +9,10 @@ h1 {
   padding: 10px;
   overflow: scroll-y;
 }
+#conversationContainer {
+  float: left;
+  width: 300px;
+  height: 250px;
+  overflow: scroll-y;
+  padding: 10px;
+}
