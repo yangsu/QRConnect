@@ -12,7 +12,7 @@ $(document).ready(function () {
   , $status = $('#status')
   , $users= $('#users');
 
-  var username, currentroom;
+  var username, currentroom = 'lobby';
   chat
   .on('connect', function(){
     username = prompt("What's your name?");
@@ -36,12 +36,14 @@ $(document).ready(function () {
     $label.html(name);
     currentroom = name;
     $conversation.empty();
-    $conversation.append('You have just joined "' + name + '"');
+    $conversation.append('You have just created room "' + name + '"');
   })
   .on('roomjoined', function (name) {
+    $label.html(name);
+    chat.emit('leaveroom', currentroom);
     currentroom = name;
     $conversation.empty();
-    $conversation.append('You have just joined "' + name + '"');
+    $conversation.append('You have just joined room "' + name + '"');
   })
   .on('newguest', function (username) {
     $conversation.append('<b>'+username + '</b> just joined the room<br>');
@@ -65,8 +67,6 @@ $(document).ready(function () {
 
   $body.delegate('a.room', 'click', function (e) {
     var targetRoom = e.target.id;
-    currentroom = targetRoom;
-    chat.emit('leaveroom', currentroom);
     chat.emit('joinroom', targetRoom);
   });
   $body.delegate('#leaveRoom', 'click', function (e) {

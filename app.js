@@ -43,7 +43,7 @@ app.listen(3000, function(){
 });
 
 // Socket.io
-var usernames = {};
+var users = {};
 var rooms = {};
 var chat = io.of('/chat');
 chat
@@ -55,42 +55,59 @@ chat
       }
     })
     .on('adduser', function(username){
-      socket.username = username;
-      usernames[username] = username;
-      socket.emit('updatechat', 'SERVER', 'you have connected');
-      // socket.broadcast.emit('updatechat', 'SERVER', username + ' has connected');
-      chat.emit('updateusers', _.keys(usernames));
-      socket.emit('updaterooms', _.keys(rooms));
-      console.log(_.keys(usernames));
-      console.log(_.keys(rooms));
+      if (users[username]) {
+        socket.emit('error', { message: 'Username already exists' });
+      } else {
+        // Set socket username
+        socket.username = username;
+        // Added it to users with timestamp
+        users[username] = {
+          connected: new Date()
+        };
+
+        socket
+          .join('lobby')
+          // Return status
+          .emit('updatechat', 'SERVER', 'you have connected')
+          // Send list of rooms available
+          .emit('updaterooms', _.keys(rooms));
+
+        // Send everyone updated users list
+        chat.in('lobby').emit('updateusers', _.keys(users));
+      }
     })
     .on('createroom', function (name) {
       if (name && rooms[name]) {
         socket.emit('error', {
-          message: '"' + name + '" already exists'
+          message: 'room "' + name + '" already exists'
         });
       } else {
+        // create room with name and add the current user to the list of clients
         rooms[name] = [ socket.username ];
-        socket.emit('roomcreated', name);
         socket.join(name);
-        console.log(socket.username + ' joined ' + name);
-        chat.emit('updaterooms', _.keys(rooms));
-        chat.emit('updateusers', rooms[name]);
+
+        chat.emit('updaterooms', _.keys(rooms))
+        socket
+          .emit('roomcreated', name)
+          .emit('updateusers', rooms[name]);
       }
     })
     .on('joinroom', function (name) {
-      console.log(rooms);
       if (name && rooms[name]) {
-        if (!_.contains(rooms[name], socket.username)) {
-          rooms[name].push(socket.username);
-          socket.join(name);
-          socket.emit('roomjoined', name);
-          chat.in(name).emit('newguest', socket.username);
-          chat.in(name).emit('updateusers', rooms[name]);
-        } else {
+        if (_.contains(rooms[name], socket.username)) {
           socket.emit('error', {
             message: 'You are already in this room'
           });
+        } else {
+          // add user to the room
+          rooms[name].push(socket.username);
+          socket.join(name);
+
+          socket.emit('roomjoined', name);
+
+          chat.in(name)
+            .emit('newguest', socket.username)
+            .emit('updateusers', rooms[name]);
         }
       } else {
         socket.emit('error', {
@@ -100,26 +117,28 @@ chat
     })
     .on('leaveroom', function (name) {
       if (name && rooms[name]) {
+        socket.leave(name);
         rooms[name] = _.without(rooms[name], socket.username);
-        if (!rooms[name].length) {
+        // if no one's in the room. destroy it
+        if (rooms[name].length === 0) {
           delete rooms[name];
           chat.emit('updaterooms', _.keys(rooms));
         }
-        socket.leave(name);
-        chat.in(name).emit('guestleaving', socket.username);
-        chat.in(name).emit('updateusers', rooms[name]);
-        socket.emit('lobby', _.keys(usernames));
+
+        chat.in(name)
+          .emit('guestleaving', socket.username)
+          .emit('updateusers', rooms[name]);
+        // return user to labby
+        socket.emit('lobby', _.keys(users));
       }
     })
     .on('disconnect', function(){
-      delete usernames[socket.username];
-      socket.broadcast.emit('updateusers', _.keys(usernames));
-      socket.broadcast.emit('updatechat', 'SERVER', socket.username + ' has disconnected');
+      delete users[socket.username];
+      _.each(rooms, function (userlist, roomname) {
+        rooms[roomname] = _.without(userlist, socket.username);
+      });
+      socket.broadcast
+        .emit('updateusers', _.keys(users))
+        .emit('updatechat', 'SERVER', socket.username + ' has disconnected');
     });
 });
-
-var connect = io
-  .of('/connect')
-  .on('connection', function (socket) {
-    socket.emit('success', { msg: 'true' });
-  });
