@@ -6,6 +6,7 @@
 var _ = require('underscore')
   , express = require('express')
   , stylus = require('stylus')
+  , msgpack = require('msgpack2')
   , routes = require('./routes')
   , app = module.exports = express.createServer()
   , io = require('socket.io').listen(app);
